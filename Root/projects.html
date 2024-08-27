@@ -15,7 +15,7 @@
 	<span style="cursor:pointer" class="openbtn" id="sideButton">&#9776;</span>
 	<span style="cursor:pointer" class="openbtn" id="homeButton">&#8962;</span>
 	<div id="sidenav">
-		<button class="homeTag" href="home.html">Home</a>
+		<button class="homeTag" href="index.html">Home</a>
 		<button class="projectTag" href="projects.html">Projects</a>
 		<button class="contactTag" href="contact.html">Contact</a>
 	</div>
@@ -99,7 +99,7 @@ $("#sideButton").click(function() {
 $("#homeButton").on("click", async function() {
 	$("#container2").animate({marginTop: "+=50px", opacity: 0}, { duration: 1500, queue: true}).promise();
 	await $("#container1").delay(500).animate({marginTop: "+=50px", opacity: 0}, { duration: 1500, queue: true}).promise();
-	location.href = "home.html"
+	location.href = "index.html"
 });
 
 $("#clickArea").click(function() {
