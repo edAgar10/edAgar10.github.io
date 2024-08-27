@@ -1,0 +1,125 @@
+<html>
+
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<meta name=”viewport” content=”width=device-width, initial-scale=1″>
+</head>
+
+<body>
+
+<div id="header">
+	<span style="cursor:pointer" class="openbtn" id="sideButton">&#9776;</span>
+	<span style="cursor:pointer" class="openbtn" id="homeButton">&#8962;</span>
+	<div id="sidenav">
+		<button class="homeTag" href="index.html">Home</a>
+		<button class="projectTag" href="projects.html">Projects</a>
+		<button class="contactTag" href="contact.html">Contact</a>
+	</div>
+</div>
+	
+
+<div id = "clickArea"></div>
+
+<section class="container" id="container1">
+	<h1 style="padding: 0; margin-bottom: 1%; margin-top: 7%;">Projects</h1>
+	<h2 style="margin-left: 5%; margin-top: 0;">Pirate Game Prototype</h2>
+	<div class="sliderWrapper" align="center-left">
+		<div class ="slider1">
+			<img id="image-1" src="Images/1.png" width="30%" height="25%";>
+			<img id="image-2" src="Images/2.png" width="30%" height="25%";>
+			<img id="image-3" src="Images/3.png" width="30%" height="25%";>
+		</div>
+		<div class="slider-nav" align="center">
+			<a href="#image-1"></a>
+			<a href="#image-2"></a>
+			<a href="#image-3"></a>
+		</div>
+		
+	</div>
+	
+	<div class="text" align="right">
+			<p1> Personal project to make a ship sailing game with turn based crew combat. In the prototype phase at the moment with some basic perlin noise world generation and combat. 
+			Working on implementing wave function collapse in order to improve world generation. Also working to make the project as scalable as possible, and development has greatly
+			improved my programming skills in both structure and execution.
+			</p1>
+	</div>
+
+</section>
+
+<section class="container" id="container2">
+	<h2 style="margin-left: 70px; margin-top: 0;">Machine Learning Image Generator</h2>
+	<div class="sliderWrapper" align="center-left">
+		<div class ="slider1">
+			<img id="image-4" src="Images/4.png" width="30%" height="25%";>
+			<img id="image-5" src="Images/5.png" width="30%" height="25%";>
+		</div>
+		<div class="slider-nav" align="center">
+			<a href="#image-4"></a>
+			<a href="#image-5"></a>
+		</div>
+		
+	</div>
+	
+	<div class="text" align="right">
+			<p1>Dissertation project to make a generative adversarial network that can take a dataset of pictures and output generated images. The pictures shown use a dataset of
+			abstract and classical artwork. Written in Python using Pytorch for machine learning and NumPy for graph plotting. 
+			</p1>
+	</div>
+
+</section>
+
+	
+
+	
+</div>
+
+<script>
+$(document).ready(function() {
+	$("#sidenav").hide();
+	$("#container1").animate({marginTop: "-=50px", opacity: 1}, { duration: 1500, queue: true});
+	$("#container2").delay(500).animate({marginTop: "-=50px", opacity: 1}, { duration: 1500, queue: true});
+
+});
+
+var sideNavOpen = false;
+
+function toggleNav() {
+	$("#sidenav").slideToggle(1000);
+	sideNavOpen = !sideNavOpen
+};
+
+$("#sideButton").click(function() {
+	toggleNav()
+});
+
+$("#homeButton").on("click", async function() {
+	$("#container2").animate({marginTop: "+=50px", opacity: 0}, { duration: 1500, queue: true}).promise();
+	await $("#container1").delay(500).animate({marginTop: "+=50px", opacity: 0}, { duration: 1500, queue: true}).promise();
+	location.href = "index.html"
+});
+
+$("#clickArea").click(function() {
+	if (sideNavOpen == true) {
+		toggleNav()
+	}
+});
+
+$("button").on("click", async function() {
+	if (sideNavOpen == true) {
+		$("#sidenav").hide();
+	}
+	var currentLink = $(this).attr("href");
+	$("#container2").animate({marginTop: "+=50px", opacity: 0}, { duration: 1500, queue: true}).promise();
+	await $("#container1").delay(500).animate({marginTop: "+=50px", opacity: 0}, { duration: 1500, queue: true}).promise();
+	document.location.href = currentLink
+
+});
+
+</script>
+</body>
+
+</html>
