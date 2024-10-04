@@ -1,4 +1,4 @@
-<html>
+<!doctype html>
 
 <head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -6,13 +6,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Home</title>
 	<meta name=”viewport” content=”width=device-width, initial-scale=1″>
 </head>
 
 <body>
 
-<!-- Header bar, also contains side menu for navigating -->
 <div id="header">
 	<span style="cursor:pointer" class="openbtn" id="sideButton">&#9776;</span>
 	<span style="cursor:pointer" class="openbtn" id="homeButton">&#8962;</span>
@@ -23,8 +21,7 @@
 	</div>
 </div>
 
-<!-- Area that checks for a click to allow the user to click off the side menu -->			
-<div id="clickArea"></div>
+<div id="clickArea">
 
 <div id="textBlock">
 	<h1>Edward Agar - Portfolio</h1>
@@ -45,7 +42,6 @@
 </section>
 
 <script>
-// Opening setup and animations
 $(document).ready(function() {
 	$("#sidenav").hide();
 	$(".pageButton").hide();
@@ -55,13 +51,11 @@ $(document).ready(function() {
 
 var sideNavOpen = false;
 
-// Function to toggle whether the side nav is open or closed
 function toggleNav() {
 	$("#sidenav").slideToggle(1000);
 	sideNavOpen = !sideNavOpen
 };
 
-// Closes the nav if the user clicks off it. Side menu and header are on a higher z level than the click area so only works when clicking off the menu. 
 $("#clickArea").click(function() {
 	if (sideNavOpen == true) {
 		toggleNav()
@@ -75,7 +69,7 @@ $("#sideButton").click(function() {
 
 
 
-// Button function which gets the href stored from the button clicked, and transitions the page to the new page
+
 $("button").on("click", function() {
 	if (sideNavOpen == true) {
 		$("#sidenav").hide();
